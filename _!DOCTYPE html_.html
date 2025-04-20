@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REYBA INDUSTRIAL</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f7f7f7; color: #333; }
+    header { background: #002c54; color: white; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    header h1 { font-size: 2rem; letter-spacing: 1px; }
+    section { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
+    h2 { color: #003366; margin-bottom: 1rem; }
+    .card { background: white; border-radius: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 2rem; }
+    .accordion button { background: #003366; color: white; width: 100%; border: none; padding: 1rem; text-align: left; font-weight: bold; cursor: pointer; }
+    .accordion-content { display: none; padding: 1rem; background: #f0f0f0; }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; margin-bottom: .5rem; font-weight: bold; }
+    input, select, textarea {
+      width: 100%; padding: .6rem; border: 1px solid #ccc; border-radius: 0;
+    }
+    button[type="submit"] {
+      background: #007acc; color: white; padding: .75rem 2rem; border: none; cursor: pointer; font-weight: bold;
+    }
+    .message {
+      margin-top: 1rem; color: red; font-weight: bold; display: none;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>REYBA INDUSTRIAL</h1>
+    <p>Distribuidor de equipos de transmisión de potencia</p>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>¿Quiénes Somos?</h2>
+      <p>Somos una empresa 100% mexicana, dedicada al asesoramiento y comercialización de las mejores marcas de equipos de transmisión de potencia.</p>
+    </div>
+    <div class="card">
+      <h2>Misión</h2>
+      <p>Solucionar y proveer las necesidades de transmisión de potencia y control de nuestros clientes con el liderazgo en servicio al cliente proporcionando una gama de productos y ser una empresa rentable.</p>
+    </div>
+    <div class="card">
+      <h2>Visión</h2>
+      <p>Ser una empresa líder en México en soluciones integrales y control de potencia para la industria sustentado en calidad, servicio y precio competitivo.</p>
+    </div>
+    <div class="card">
+      <h2>Valores</h2>
+      <ul>
+        <li>Ética profesional</li>
+        <li>Empatía</li>
+        <li>Honestidad</li>
+        <li>Responsabilidad</li>
+      </ul>
+    </div>
+
+    <div class="card accordion">
+      <h2>Distribuidor de Marcas</h2>
+      <button onclick="toggleAccordion(this)">Motores</button>
+      <div class="accordion-content"><p>ABB, US, SIEMENS, TOSHIBA, BALDOR, MARATHON</p></div>
+      <button onclick="toggleAccordion(this)">Reductores</button>
+      <div class="accordion-content"><p>SUMITOMO, NORD DRIVE, SEW</p></div>
+      <button onclick="toggleAccordion(this)">Drives</button>
+      <div class="accordion-content"><p>ABB, INVERTEK, TOSHIBA</p></div>
+    </div>
+
+    <div class="card">
+      <h2>Contacto</h2>
+      <form id="formContacto">
+        <div class="form-group"><label>Nombre completo *</label><input name="nombre" required></div>
+        <div class="form-group"><label>Teléfono *</label><input name="telefono" required></div>
+        <div class="form-group"><label>Correo electrónico *</label><input type="email" name="email" required></div>
+        <div class="form-group"><label>Empresa *</label><input name="empresa" required></div>
+        <button type="submit">Enviar</button>
+        <div class="message" id="mensajeContacto"></div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Formulario Técnico</h2>
+      <form id="formTecnico">
+        <div class="form-group"><label>Potencia de entrada (HP) *</label><input name="potencia" required></div>
+        <div class="form-group"><label>Velocidad de entrada (RPM) *</label><input name="velocidad" required></div>
+        <div class="form-group"><label>Relación de reducción *</label><input name="relacion" required></div>
+        <div class="form-group"><label>Tipo de reductor *</label><select name="tipo_reductor" required>
+          <option value="">Selecciona</option><option>Flechas paralelas</option><option>Ángulo recto</option><option>Colineal</option>
+        </select></div>
+        <div class="form-group"><label>Montaje *</label><select name="montaje" required>
+          <option value="">Selecciona</option><option>Horizontal</option><option>Vertical</option>
+        </select></div>
+        <div class="form-group"><label>Aplicación *</label><input name="aplicacion" required></div>
+        <div class="form-group"><label>Tipo de carga *</label><select name="tipo_carga" required>
+          <option value="">Selecciona</option><option>Ligero</option><option>Pesada</option>
+        </select></div>
+        <div class="form-group"><label>Horas de operación *</label><input name="horas" required></div>
+        <div class="form-group"><label>Temperatura ambiente *</label><input name="temperatura" required></div>
+        <div class="form-group"><label>Tipo de ambiente *</label><input name="ambiente" required></div>
+        <div class="form-group"><label>Accesorios en eje de alta velocidad</label><input name="accesorios_alta"></div>
+        <div class="form-group"><label>Accesorios en eje de baja velocidad</label><input name="accesorios_baja"></div>
+        <button type="submit">Enviar</button>
+        <div class="message" id="mensajeTecnico"></div>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    function toggleAccordion(btn) {
+      const content = btn.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function mostrarMensaje(id, texto) {
+      const msg = document.getElementById(id);
+      msg.textContent = texto;
+      msg.style.display = 'block';
+      setTimeout(() => {
+        msg.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 5000);
+    }
+
+    document.getElementById('formContacto').addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      fetch("https://script.google.com/macros/s/AKfycbxeAjJOj4UcSo5N1w1Udu4zFkrip1zj-fzO46HoQVhznYbHIAU0aYI83rryaiQuHj4t/exec", {
+        method: 'POST',
+        body: formData
+      }).then(() => {
+        mostrarMensaje('mensajeContacto', 'Gracias, tu información ha sido registrada, redirigiendo al inicio..');
+        e.target.reset();
+      });
+    });
+
+    document.getElementById('formTecnico').addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      fetch("https://script.google.com/macros/s/AKfycbzbLDNLsg2Dn2aApImLIG3RD3mXMNR-Z31VhNL5NzykLfMOk5Nh7GXQ3C7dMhVz42Bp/exec", {
+        method: 'POST',
+        body: formData
+      }).then(() => {
+        mostrarMensaje('mensajeTecnico', 'Gracias, tu información ha sido registrada, redirigiendo al inicio..');
+        e.target.reset();
+      });
+    });
+  </script>
+</body>
+</html>
